@@ -1,17 +1,35 @@
 ---
-
+import { DashboardApp } from '../components/dashboard/DashboardApp';
+import '../styles/global.css';
 ---
 
-<html lang="en">
+<html lang="es" class="dark">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Dashboard — Nebula</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+			rel="stylesheet"
+		/>
+		<script is:inline>
+			(function () {
+				try {
+					var k = 'nebula-theme';
+					var v = localStorage.getItem(k);
+					var root = document.documentElement;
+					if (v === 'light') root.classList.remove('dark');
+					else root.classList.add('dark');
+				} catch (e) {}
+			})();
+		</script>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="font-sans">
+		<DashboardApp client:load />
 	</body>
 </html>
